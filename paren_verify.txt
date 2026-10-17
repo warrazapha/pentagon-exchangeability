@@ -1,0 +1,21 @@
+[engine convention] triple formula vs brute force on all 4096 index triples: mismatches = 0
+[alternative convention] triple formula vs brute force on all 4096 index triples: mismatches = 0
+tuples whose edge-flip count is odd (pentagon product must be +1): 0
+tuples (rank 3 or 4) where the five-point-frame prediction differs from brute force: 0
+
+rank, #flips -> number of index 4-tuples
+  rank 0 flips 0 : 1
+  rank 1 flips 0 : 225
+  rank 2 flips 0 : 7350
+  rank 3 flips 0 : 7560
+  rank 3 flips 2 : 23520
+  rank 3 flips 4 : 6720
+  rank 4 flips 2 : 3360
+  rank 4 flips 4 : 16800
+
+per two-flip pattern (rank3, rank4, total): [(2352, 336, 2688)]
+per four-flip pattern (rank3, rank4, total): [(1344, 3360, 4704)]
+tuples with no flipped edge: 15136 of 65536
+[engine convention] F0: x(xy) = x^2 y and (yx)x = y x^2 on all 256 unit pairs: True
+[alternative convention] F0: x(xy) = x^2 y and (yx)x = y x^2 on all 256 unit pairs: True
+Prop 1': sigma_alt(x,y) == sigma(y,x) on all 256 pairs (second convention is the opposite algebra): True

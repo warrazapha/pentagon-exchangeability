@@ -1,0 +1,8 @@
+standard (1848, {0: [15136], 2: [2688], 4: [4704]}, 16, {0: 1, 2: 10, 4: 5}) pos 2248
+alt (std indexing) (1080, {0: [26656], 2: [3456], 4: [864]}, 16, {0: 1, 2: 10, 4: 5}) pos 3016
+alt shuffle labels (1080, {0: [26656], 2: [3456], 4: [864]}, 16, {0: 1, 2: 10, 4: 5})
+disagree (alt shuffle labels vs standard labels): 1440
+disagree (alt std labels vs standard): 1344
+alpha(1,2,4): std -1 alt-shuffle 1 alt-std 1
+alt octonion-stage zero divisors: ([0, 1, 0, 0, 1, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0, -1])
+std octonion zero divisors (control): None

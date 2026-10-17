@@ -1,0 +1,6 @@
+displayed identities hold on all triples, 5 random sigma with (L),(R): {'(1) a(x,y,z)=a(x,y+z,z)': True, '(2) a(x,y,z)=a(x,x+y,z)': True, '(3) a(x,y,z)=a(x+y,y,y+z)': True}
+q (a,b,c,d = bits 1,2,4,8): [5, 9, 10, 13, 11] expected [5,9,10,13,11]: True
+sum of q_i = 0
+dims (log2 sizes): [3, 3, 3, 3, 3]
+q_i in H_i: True ; q_j in H_i for j!=i: []
+with a,b,c,d = bits 8,4,2,1 the q_i integers are [10, 9, 5, 11, 13]

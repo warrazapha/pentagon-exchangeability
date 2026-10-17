@@ -1,0 +1,6 @@
+left only (L holds, R fails)
+  (L) holds: True   (R) holds: False
+  distinct counts by flip-set size: {0: [14954], 2: [2626, 3037, 3493, 3904, 4341, 4484, 5528], 4: [2286, 2358, 2501, 2652]}   -> uniform: False
+right only (R holds, L fails)
+  (L) holds: False   (R) holds: True
+  distinct counts by flip-set size: {0: [15536], 2: [2904, 3225, 3565, 3886, 4318, 4333, 5366], 4: [2168, 2209, 2224, 2470]}   -> uniform: False

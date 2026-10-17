@@ -1,0 +1,10 @@
+n=3: variables 49, free (solution space dim) 14
+  sample: counts by flip-set size {0: [2296], 2: [168], 4: [24]} odd-weight patterns present: False neg triples 96
+  sample: counts by flip-set size {0: [2656], 2: [144], 4: [0]} odd-weight patterns present: False neg triples 72
+  sample: counts by flip-set size {0: [2656], 2: [144], 4: [0]} odd-weight patterns present: False neg triples 72
+n=4: variables 225, free (solution space dim) 50
+  sample: counts by flip-set size {0: [22576], 2: [3600], 4: [1392]} odd-weight patterns present: False neg triples 1248
+  sample: counts by flip-set size {0: [22336], 2: [3552], 4: [1536]} odd-weight patterns present: False neg triples 1272
+n=5: variables 961, free (solution space dim) 186
+  sample: counts by flip-set size {0: [213976], 2: [61704], 4: [43512]} odd-weight patterns present: False neg triples 13152
+  sample: counts by flip-set size {0: [220696], 2: [62664], 4: [40248]} odd-weight patterns present: False neg triples 12864

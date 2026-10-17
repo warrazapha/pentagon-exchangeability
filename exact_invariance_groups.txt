@@ -1,0 +1,4 @@
+no condition     universal invariance group order  1 ['(x,y,z)']
+left only  (L)   universal invariance group order  2 ['(x,y,z)', '(x,xy,z)']
+right only (R)   universal invariance group order  2 ['(x,y,z)', '(x,yz,z)']
+left and right   universal invariance group order 24 (24 elements: all M with row1+row3 = (1,0,1))

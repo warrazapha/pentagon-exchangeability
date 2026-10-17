@@ -1,0 +1,24 @@
+unconstrained
+  equality classes: [[(1, 2)], [(1, 3)], [(1, 4)], [(1, 5)], [(2, 3)], [(2, 4)], [(2, 5)], [(3, 4)], [(3, 5)], [(4, 5)]]
+  rank of sample matrix: 10 (10 = no linear relation among the ten sums)
+  distinct 10-vectors: 14
+left a(x,x,z)=1
+  equality classes: [[(1, 2)], [(1, 3), (1, 5)], [(1, 4)], [(2, 3), (2, 5), (3, 5)], [(2, 4)], [(3, 4), (4, 5)]]
+  rank of sample matrix: 6 (10 = no linear relation among the ten sums)
+  distinct 10-vectors: 14
+right a(x,z,z)=1
+  equality classes: [[(1, 2), (1, 4), (2, 4)], [(1, 3), (3, 4)], [(1, 5), (4, 5)], [(2, 3)], [(2, 5)], [(3, 5)]]
+  rank of sample matrix: 6 (10 = no linear relation among the ten sums)
+  distinct 10-vectors: 14
+flexible a(x,y,x)=1
+  equality classes: [[(1, 2)], [(1, 3)], [(1, 4)], [(1, 5)], [(2, 3)], [(2, 4)], [(2, 5)], [(3, 4)], [(3, 5)], [(4, 5)]]
+  rank of sample matrix: 10 (10 = no linear relation among the ten sums)
+  distinct 10-vectors: 14
+a(x,y,x+y)=1
+  equality classes: [[(1, 2), (1, 5), (2, 3), (3, 4), (4, 5)], [(1, 3), (1, 4), (2, 4), (2, 5), (3, 5)]]
+  rank of sample matrix: 2 (10 = no linear relation among the ten sums)
+  distinct 10-vectors: 14
+left+right (=dep trivial)
+  equality classes: [[(1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 4), (3, 5), (4, 5)]]
+  rank of sample matrix: 1 (10 = no linear relation among the ten sums)
+  distinct 10-vectors: 10

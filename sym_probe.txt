@@ -1,0 +1,7 @@
+168
+left symmetries (invertible 3x3 acting on (x,y,z)): 2
+right symmetries (invertible 3x3 acting on (x,y,z)): 2
+both symmetries (invertible 3x3 acting on (x,y,z)): 24
+left ['(x,y,z)', '(x,xy,z)']
+right ['(x,y,z)', '(x,yz,z)']
+both ['(z,y,x)', '(z,yz,x)', '(z,xy,x)', '(z,xyz,x)', '(y,z,xyz)', '(y,yz,xyz)', '(y,x,xyz)', '(y,xy,xyz)', '(yz,z,xy)', '(yz,y,xy)', '(yz,x,xy)', '(yz,xyz,xy)', '(x,y,z)', '(x,yz,z)', '(x,xy,z)', '(x,xyz,z)', '(xy,z,yz)', '(xy,y,yz)', '(xy,x,yz)', '(xy,xyz,yz)', '(xyz,z,y)', '(xyz,yz,y)', '(xyz,x,y)', '(xyz,xy,y)']

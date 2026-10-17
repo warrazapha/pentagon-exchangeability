@@ -1,0 +1,5 @@
+168
+order of <s1,s2,t3> = 24 ; |{M: row1+row3 = x+z}| = 24 ; equal: True
+q_i = first+third of T_i: True  q_i in H_i: True  q_j in H_i (i!=j): False
+trial 0 generators invariant on all triples: True  mismatches over 120 perms x 300 random quadruples x 5 edges: 0
+trial 1 generators invariant on all triples: True  mismatches over 120 perms x 300 random quadruples x 5 edges: 0

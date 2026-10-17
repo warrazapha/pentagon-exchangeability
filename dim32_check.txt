@@ -1,0 +1,4 @@
+n= 3 left alt: True right alt: True
+n= 4 left alt: True right alt: True
+n= 5 left alt: True right alt: True
+{0: [166576], 2: [48720], 4: [78960]} patterns 16
