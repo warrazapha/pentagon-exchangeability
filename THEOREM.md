@@ -1,6 +1,6 @@
 # Alternative sign cochains and S_5-exchangeability of the pentagon of bracketings
 
-Version 2026-10-17. **Status: hand proof, supported by computation; not reviewed by a mathematician.** No claim of novelty or priority is made; the literature search was partial (section 7). Developed with several AI systems (Claude, ChatGPT, Gemini, Grok) under the direction of the human author; agreement between AI systems is not treated as evidence. Everything below is meant to be checked.
+Version 2026-10-17 (revised later the same day: sections 9-11 added). **Status: hand proof, supported by computation; not reviewed by a mathematician.** No claim of novelty or priority is made; the literature search was partial (sections 7 and 11). Developed with several AI systems (Claude, ChatGPT, Gemini, Grok) under the direction of the human author; agreement between AI systems is not treated as evidence. Everything below is meant to be checked.
 
 ## 1. Setting
 
@@ -18,7 +18,7 @@ Hypotheses (alternativity on basis elements):
 - (L) alpha(x,x,z) = 1 for all x,z.
 - (R) alpha(x,z,z) = 1 for all x,z.
 
-These are conditions on the signs of *basis units* only. They do not say the algebra is alternative: the sedenion algebra is not alternative (it is flexible and power-associative), but its basis-unit signs satisfy (L),(R) (Culbert reports alternativity of the unit loop; here checked directly for n = 3, 4, 5).
+These are conditions on the signs of *basis units* only. They do not say the algebra is alternative: the sedenion algebra is not alternative (it is flexible and power-associative), but its basis-unit signs satisfy (L),(R) ((L) and (R) are the left and right alternative laws of the unit loop; this is known for the standard Cayley-Dickson loop, see section 10).
 
 Pentagon edges. For a quadruple (a,b,c,d) in G^4 put T_1=(a,b,c), T_2=(a,b+c,d), T_3=(b,c,d), T_4=(a,b,c+d), T_5=(a+b,c,d) and X_i = alpha(T_i) in {+-1}. By (P), X_1...X_5 = 1, so the set F of i with X_i = -1 has size 0, 2 or 4.
 
@@ -26,7 +26,7 @@ Pentagon edges. For a quadruple (a,b,c,d) in G^4 put T_1=(a,b,c), T_2=(a,b+c,d),
 
 If sigma satisfies (L) and (R), then for every n the joint law of (X_1,...,X_5), over the uniform distribution on all 2^{4n} quadruples, is invariant under all 120 permutations of the five coordinates. Equivalently: all C(5,2) = 10 two-element patterns F occur equally often, and all 5 four-element patterns occur equally often.
 
-It is an exchangeability statement; it does not give the individual counts. Necessity of (L),(R) is not claimed.
+It is an exchangeability statement; it does not give the individual counts. The converse (exchangeability of the aggregate law implies (L) and (R)) is Theorem 9.1 below.
 
 ## 3. Proof
 
@@ -67,14 +67,14 @@ The three points to check most carefully: the three substitutions in Step 1; the
 - The alternate product has zero divisors at dimension 8 in my implementation, e.g. (e1+e4)(e2-e7) = 0, so it is not a Cayley-Dickson doubling product in the usual sense; it is included only as a second example of a cochain satisfying (L),(R).
 - Random cochains satisfying (L),(R) (sampled from the exact linear solution space): n=3 (3 samples), n=4 (many), n=5 (2 samples) all show exactly one count per pattern size. Random normalized cochains without (L),(R): never uniform.
 - Step 4 tested directly: X_i(phi psi_pi) = X_pi(i)(phi) with 0 mismatches over all 120 permutations x 300 random quadruples x 5 edges (two random sigma).
-- (L),(R) for the standard Cayley-Dickson sign function were checked for n = 3, 4, 5. That they hold for every n is **not** proved here.
-- Scripts (in `scripts/`, and `sedenion/paren_verify.py`): `uniformity_proof_check.py`, `sym_probe.py`, `uniformity_probe.py`, `pairs_check.py`, `pairs_classes.py`, `alt_product_check.py`, `dim32_check.py`, `general_n_check.py`, `transcribe_check.py`, `paren_verify.py`. `run_all.sh` runs them all.
+- (L),(R) for the standard Cayley-Dickson sign function: known for all n (section 10); checked here at n = 1..7 (`cd_LR_induction_check.py`) and proved by induction in section 10.
+- Scripts (in `scripts/`, and `sedenion/paren_verify.py`): `gram_separator_verify.py`, `cd_LR_induction_check.py`, `uniformity_proof_check.py`, `sym_probe.py`, `uniformity_probe.py`, `pairs_check.py`, `pairs_classes.py`, `alt_product_check.py`, `dim32_check.py`, `general_n_check.py`, `transcribe_check.py`, `paren_verify.py`. `run_all.sh` runs them all.
 
 ## 6. Scope and open questions
 
-- Necessity: neither (L) nor (R) alone suffices (explicit counterexamples, section 6a). Whether the pair is necessary, or some other weaker condition suffices, is open.
+- Necessity: neither (L) nor (R) alone suffices (explicit counterexamples, section 6a), and the pair is necessary and sufficient for the aggregate law (Theorem 9.1). Weaker conditions suffice only for finer statements, if at all; not investigated.
 - Is there a more intrinsic description of the S_5 action (associahedron, binary matroids, cohomology)?
-- Does alpha = delta sigma for the standard Cayley-Dickson sign function satisfy (L),(R) for all n? (Culbert's results on alternativity of the unit loop may bear on this; not checked beyond n=5.)
+- (Answered: (L),(R) hold for the standard Cayley-Dickson unit loop for all n, section 10.)
 - Is the theorem, or an equivalent statement, already in the literature?
 
 ## 6a. Proposition: why both conditions are needed
@@ -93,6 +93,65 @@ Caveats: (a) is a statement about the method (which substitutions are guaranteed
 
 Kirshtein arXiv:1102.5151 (recursive associator formulas, Remark 35); Culbert 2007; Cawagas 2004 (8 octonion-like and 7 quasi-octonion maximal subloops); Albuquerque-Majid math/9802116; Hu-Huang-Zhang 1506.01502; Bales 1107.1375; Saniga-Holweck-Pracna 1405.6888; Wilmot 2505.11747 (triad classification; no pentagon counts or closed associator formula in the extract). Not found does not mean not known.
 
-## 8. History
+## 12. History
 
 The derivation path, corrections and failed approaches are recorded in the project notes: `uniformity-property-note-2026-10-16.md` (addenda 1-3c), `sedenion-pentagon-proof-revised-2026-10-16.md`, and the literature audits rounds 1-4.
+
+---
+
+## 9. Necessity: exchangeability implies (L) and (R)  (added 2026-10-17)
+
+**Theorem 9.1 (hand proof; finite checks; not reviewed by a mathematician).** For every n and every normalized sigma on G = F_2^n, with alpha = delta sigma, the following are equivalent.
+1. The law of (X_1,...,X_5) over uniform (a,b,c,d) in G^4 is invariant under S_5.
+2. (L) alpha(x,x,z) = 1 and (R) alpha(x,z,z) = 1 for all x, z.
+3. The ten pair sums T_ij = sum X_i X_j coincide.
+4. P = Q = R = W as functions on G x G (defined below).
+
+Setting. q = 2^n. Define on G x G
+P(x,y) = sum_t alpha(t,x,y),  Q(x,y) = sum_t alpha(t,t+x,y),  R(x,y) = sum_t alpha(x,y,t),  W(x,y) = sum_t alpha(x,t,t+y)
+(R here is a marginal function, not the law (R)), and <U,V> = sum_{x,y} U(x,y) V(x,y).
+
+**Step 1 (valid for any +-1 triple function).** Changes of summation variables give
+T_12=<R,W>, T_13=<P,R>, T_14=||R||^2, T_15=<Q,R>, T_23=<P,Q>, T_24=||W||^2, T_25=||Q||^2, T_34=<P,W>, T_35=||P||^2, T_45=<Q,W>.
+Example, T_25: put s = a+b+c. Then X_2 = alpha(a,a+s,d) and X_5 = alpha(a+b,(a+b)+s,d), and a, a+b are independent and uniform, so the sum is sum_{s,d} Q(s,d)^2. Example, T_24: put s = b+c+d; X_2 = alpha(a,t,t+s) with t = b+c, X_4 = alpha(a,t',t'+s) with t' = b, giving sum_{a,s} W(a,s)^2.
+
+**Step 2 (sum of squares).** Take c = (-2,-2,3,-2,-2,3,3,-2,3,-2) in the order 12,13,14,15,23,24,25,34,35,45. Then sum(c) = 0 and
+F := c.T = 3(||P||^2+||Q||^2+||R||^2+||W||^2) - 2 sum_{U<V} <U,V> = sum over the six pairs U<V of ||U-V||^2 >= 0,
+with F = 0 iff P = Q = R = W.
+
+**Step 3 (F detects every defect; uses only normalization).** At (0,z): P = R = W = q and Q = q - 2 l_z, l_z = #{t : alpha(t,t,z) = -1}. At (x,0): P = Q = R = q and W = q - 2 r_x, r_x = #{t : alpha(x,t,t) = -1}. The point (0,z) contributes 12 l_z^2 to F and (x,0) contributes 12 r_x^2; they meet only at (0,0), where both are 0. So
+F >= 12 (sum_z l_z^2 + sum_x r_x^2) >= 12 (number of (L)-defects + (R)-defects).
+
+**Step 4 (necessity).** If all T_ij are equal, F = (sum c) T_ij = 0, so P = Q = R = W, so every l_z and r_x is 0: (L) and (R) hold. Exchangeability gives equal pair sums (the pair characters are permuted by S_5). Steps 1-3 hold for every normalized +-1 triple function; they do not use that alpha is a coboundary.
+
+**Step 5 (sufficiency by this route).** Let d_x = sigma(x,x). Expanding (L), (R):
+(L') sigma(x,z) sigma(x,x+z) = d_x,   (R') sigma(x,z) sigma(x+z,z) = d_z.
+Multiplying (R') at (u,v), (L') at (u+v,v) and (R') at (u+v,u) gives (C) sigma(u,v) sigma(v,u) = d_u d_v d_{u+v}. Then for all t,x,y:
+- Id.1  alpha(t,t+x,y) = alpha(t,x,y): the ratio is [sigma(t,t+x) sigma(t,x)] [sigma(t,t+x+y) sigma(t,x+y)] = d_t d_t = 1 by (L') twice.
+- Id.2  alpha(x,y+t,t) = alpha(x,y,t): the ratio is [sigma(x+y+t,t) sigma(x+y,t)] [sigma(y+t,t) sigma(y,t)] = d_t d_t = 1 by (R') twice.
+- Id.3  alpha(t,x,y) = alpha(x,y,t+x+y): expand the right side as sigma(x,y) sigma(x+y,t+x+y) sigma(y,t+x+y) sigma(x,t+x); apply (L') to the last three factors (each gains a d), reverse the arguments with (C) (each gains three d's); every d occurs twice and cancels, leaving sigma(x,y) sigma(t,x+y) sigma(t+x,y) sigma(t,x) = alpha(t,x,y).
+Id.1 gives Q = P. Substituting t -> t+y in the sum defining W and using Id.2 gives W = R. Summing Id.3 over t gives P = R. So P = Q = R = W, all Gram entries equal ||P||^2, and the ten pair sums coincide. The five means are equal for every sigma (each edge map G^4 -> G^3 is a surjective linear map with equal fibres), and the 16 even-parity sign patterns have 16 characters (constant, five singletons, ten pairs), so equal means and equal pair sums give S_5-invariance. This reproves the aggregate form of section 2 without the order-24 group; it does not give the finer statement for each rank stratum.
+
+**Scope.** The theorem concerns the aggregate law over all of G^4. It does not say the edge law is concentrated at +1 or that the algebra is associative.
+
+**Credit.** The weight vector c, the Gram identification, the sum-of-squares form, Step 3 and the identities of Step 5 come from a report by a separate AI instantiation, relayed by the human author. Each identity was re-derived by hand and checked by script. Agreement among AI systems is not treated as evidence.
+
+**Checks (`scripts/gram_separator_verify.py`, about 1.5 min).** Gram identities for random +-1 triple functions at q = 4, 8; sum(c) = 0 and the SOS form; the defect bound and F >= 0 on all 512 normalized cochains at n = 2 (F = 0 for exactly the 16 with (L)&(R); minimum positive F is 160); random cochains at n = 3, 4; all 961 single flips of the standard n = 5 cochain (minimum F = 2400); Id.1-3 and P = Q = R = W for the standard and alternate Cayley-Dickson cochains at n = 1..6.
+**Not checked:** exhaustive search beyond n = 2; independent human review.
+
+## 10. (L) and (R) for Cayley-Dickson basis units, all n
+
+**Known.** Kinyon, Phillips, Vojtechovsky, *C-loops: extensions and constructions*, arXiv:math/0412390, section 7: the loop L_n of signed standard basis elements of the real Cayley-Dickson algebra satisfies the alternative and flexible laws for every n (they cite their Lemma 6.2(vii), which they prove only in part). Our (L) and (R) are the left and right alternative laws of this loop. See also arXiv:2501.00123 (doubling of loops with involution). Sources were read through fetch extracts only.
+
+**Our proof (a re-derivation, not a new result).** Product (p,q)(r,s) = (pr - s-bar q, sp + q r-bar). Write eps(x) = +1 if x = 0, else -1, so e-bar_x = eps(x) e_x and u^2 = eps(u) for every basis unit u; conjugation reverses products. Assume (L) and (R) for basis units of A_n; let u, w be basis units of A_{n+1} (one nonzero component each).
+- (L), u = (p,0), w = (r,s): u(uw) = (p(pr), (sp)p) and (uu)w = (p^2 r, s p^2); equal by (L) and (R) at level n.
+- (L), u = (0,q), w = (r,s): (uu)w = (-r,-s); u(uw) = (-(r q-bar) q, -q(q-bar s)); and (r q-bar) q = eps(q) r q^2 = r by (R), q(q-bar s) = eps(q) q^2 s = s by (L).
+- (R), w = (r,0), u = (p,q): (uw)w = (p r^2, q r^2) = u(ww), by (R) at level n.
+- (R), w = (0,s), u = (p,q): u(ww) = (-p,-q); (uw)w = (-s-bar(sp), -s(s-bar q)) = (-p,-q), using s-bar(sp) = eps(s) s^2 p = p by (L) and s(s-bar q) = q likewise.
+Both laws at level n+1 use both at level n, so the pair is proved together. Checked: `scripts/cd_LR_induction_check.py` builds the unit sign table by the same recursion (cross-checked against the full vector product for n <= 4) and verifies (L),(R) for n = 1..7.
+**Alternate product** (a,b)(c,d) = (ac - b-bar d, da-bar + bc): the same induction works with one change (the (R) case with w = (0,s) uses s(s-bar q) = q, which is (L), not (R)); (L),(R) are verified for n = 1..6 in `gram_separator_verify.py`. We did not determine whether this is in the literature.
+**Consequence.** The theorem of section 2 holds for the standard Cayley-Dickson algebras at every n, not only n = 3, 4, 5. The unit loop is alternative from n = 4 on while the algebra is not.
+
+## 11. Literature update (round 5, 2026-10-17)
+
+Related, not the same: Albuquerque-Elduque-Perez-Izquierdo, *Alternative quasialgebras*, Bull. Austral. Math. Soc. 63 (2001) 257-268 (Prop. 3.9(i): phi(a,b,c) = 1 iff the subgroup generated by a,b,c has order at most 4, for alternative division quasialgebras; compare with our rank-2 statement only after reading it in full). Albuquerque-Majid, math/9802116 (octonions as a Z_2^3 cocycle twist; abstract only). We did not find the pentagon exchangeability statement, the Gram argument, or the necessity theorem in the sources searched; the search was partial, and not finding something is not evidence that it is new. See `notes/literature-audit-round5.md`.

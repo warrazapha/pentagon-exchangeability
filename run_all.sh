@@ -9,7 +9,7 @@ SCRIPTS=scripts; [ -d scripts ] || SCRIPTS=.
 SEDENION=sedenion; [ -d sedenion ] || SEDENION=.
 run() { dir=$1; s=$2; ( cd "$dir" && ENGINE_DIR=/nonexistent python3 "$s" ) > "output/${s%.py}.txt" 2>"output/${s%.py}.err" || { echo "FAIL (exit) $s"; fail=1; }; }
 for s in exact_invariance_groups counterexamples random_cochain_check alt_product_check dim32_check general_n_check corr_check transcribe_check \
-         uniformity_proof_check pairs_check pairs_classes sym_probe uniformity_probe_dep uniformity_probe; do run $SCRIPTS $s.py; done
+         uniformity_proof_check pairs_check pairs_classes sym_probe uniformity_probe_dep uniformity_probe cd_LR_induction_check gram_separator_verify; do run $SCRIPTS $s.py; done
 run $SEDENION paren_verify.py
 need() { grep -q -- "$2" "output/$1.txt" && echo "ok    $1: $3" || { echo "FAIL  $1: $3"; fail=1; }; }
 need exact_invariance_groups "left only  (L)   universal invariance group order  2" "L only: guaranteed symmetry group has order 2"
@@ -26,6 +26,8 @@ need dim32_check "n= 5 left alt: True right alt: True" "left/right alternativity
 need alt_product_check "{0: \[15136\], 2: \[2688\], 4: \[4704\]}" "sedenion census"
 need alt_product_check "{0: \[26656\], 2: \[3456\], 4: \[864\]}" "alternate product census"
 need uniformity_probe_dep "nonuniform samples: 0 of 60" "60 random alternative cochains uniform"
+need cd_LR_induction_check "ALL OK" "(L),(R) for CD unit table n=1..7"
+need gram_separator_verify "ALL CHECKS PASSED" "Gram separator: necessity of (L)+(R)"
 need paren_verify "mismatches = 0" "triple formula vs brute force"
 need corr_check "0.09765625 0.09765625" "E[X_i] = 25/256"
 need pairs_check "explicit==brute: True" "explicit pair sums = brute force"

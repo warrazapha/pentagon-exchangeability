@@ -1,0 +1,8 @@
+n=1: cross-checked against full vector product: yes; L=True; R=True
+n=2: cross-checked against full vector product: yes; L=True; R=True
+n=3: cross-checked against full vector product: yes; L=True; R=True
+n=4: cross-checked against full vector product: yes; L=True; R=True
+n=5: cross-checked against full vector product: no (n>4: unit table only); L=True; R=True
+n=6: cross-checked against full vector product: no (n>4: unit table only); L=True; R=True
+n=7: cross-checked against full vector product: no (n>4: unit table only); L=True; R=True
+ALL OK

@@ -1,0 +1,10 @@
+[ok]  A: ten pair sums = ten Gram entries (arbitrary +-1 triple functions, q=4,8)
+[ok]  B: sum(c)=0 and F=c.T = sum of six squared distances
+[ok]  C: n=2 all 512 cochains: F>=0, defect bound holds, F=0 for exactly 16 (all L&R: True), min positive F=160
+[ok]  C: random cochains q=8 (200): F>=12(sum l^2+sum r^2) when defective
+[ok]  C: random cochains q=16 (30): F>=12(sum l^2+sum r^2) when defective
+[ok]  C: n=5, all 961 single flips of standard CD: defect bound holds, min F=2400
+[ok]  D: standard Cayley-Dickson n=1..6: L&R hold, identities 1-3 hold, P=Q=R=W
+[ok]  D: alternate Cayley-Dickson n=1..6: L&R hold, identities 1-3 hold, P=Q=R=W
+ALL CHECKS PASSED
+
