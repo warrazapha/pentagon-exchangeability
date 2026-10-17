@@ -42,6 +42,8 @@ The three places to check most carefully: the substitutions (step 1), the order-
     expected_output/        output of each script from the run that produced this archive
     run_all.sh              runs everything and checks the key structural results
 
+(If the files of your copy sit in one flat folder instead of these subfolders, nothing changes: `./run_all.sh` finds the scripts either way.)
+
 ## Reproducing
 
     pip install numpy
@@ -73,4 +75,4 @@ Random samples depend on the Python version (`random` is seeded), so numbers in 
 
 ## Disclosure and feedback
 
-AI systems were used for derivation, computation and adversarial review; the human author chose directions, ran the review loop and decides what is stated. Errors, references, or counterexamples are welcome. License: not yet chosen (to be decided by the author before publication).
+AI systems were used for derivation, computation and adversarial review; the human author chose directions, ran the review loop and decides what is stated. Errors, references, or counterexamples are welcome. License: MIT (see `LICENSE`).
