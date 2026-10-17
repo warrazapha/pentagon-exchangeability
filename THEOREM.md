@@ -56,19 +56,19 @@ The three points to check most carefully: the three substitutions in Step 1; the
 - The five-vector circuit (the uniform matroid U_{4,5}) appears because its automorphism group S_5 is what permutes the edges.
 - The mean E[X_i] is the same for every edge and every sigma (each T_i is uniformly distributed over triples), so the whole content is equality of the ten pair correlations.
 
-## 5. Computational checks (scripts in `claude/engine/`)
+## 5. Computational checks (scripts in this repository)
 
 | System | n | no flip | each 2-flip pattern | each 4-flip pattern |
 |---|---|---|---|---|
-| standard Cayley-Dickson (sedenions), (p,q)(r,s)=(pr - s*q, sp + q r*) | 4 | 15,136 | 2,688 | 4,704 |
-| alternate product (a,b)(c,d)=(ac - b*d, da* + bc) | 4 | 26,656 | 3,456 | 864 |
+| standard Cayley-Dickson (sedenions), (p,q)(r,s)=(pr - s\*q, sp + q r\*) | 4 | 15,136 | 2,688 | 4,704 |
+| alternate product (a,b)(c,d)=(ac - b\*d, da\* + bc) | 4 | 26,656 | 3,456 | 864 |
 | standard Cayley-Dickson | 5 | 166,576 | 48,720 | 78,960 |
 
 - The alternate product has zero divisors at dimension 8 in my implementation, e.g. (e1+e4)(e2-e7) = 0, so it is not a Cayley-Dickson doubling product in the usual sense; it is included only as a second example of a cochain satisfying (L),(R).
 - Random cochains satisfying (L),(R) (sampled from the exact linear solution space): n=3 (3 samples), n=4 (many), n=5 (2 samples) all show exactly one count per pattern size. Random normalized cochains without (L),(R): never uniform.
 - Step 4 tested directly: X_i(phi psi_pi) = X_pi(i)(phi) with 0 mismatches over all 120 permutations x 300 random quadruples x 5 edges (two random sigma).
 - (L),(R) for the standard Cayley-Dickson sign function: known for all n (section 10); checked here at n = 1..7 (`cd_LR_induction_check.py`) and proved by induction in section 10.
-- Scripts (in `scripts/`, and `sedenion/paren_verify.py`): `gram_separator_verify.py`, `cd_LR_induction_check.py`, `uniformity_proof_check.py`, `sym_probe.py`, `uniformity_probe.py`, `pairs_check.py`, `pairs_classes.py`, `alt_product_check.py`, `dim32_check.py`, `general_n_check.py`, `transcribe_check.py`, `paren_verify.py`. `run_all.sh` runs them all.
+- Scripts (in this repository; `paren_verify.py` is the sedenion one): `gram_separator_verify.py`, `cd_LR_induction_check.py`, `uniformity_proof_check.py`, `sym_probe.py`, `uniformity_probe.py`, `pairs_check.py`, `pairs_classes.py`, `alt_product_check.py`, `dim32_check.py`, `general_n_check.py`, `transcribe_check.py`, `paren_verify.py`. `run_all.sh` runs them all.
 
 ## 6. Scope and open questions
 
@@ -93,9 +93,6 @@ Caveats: (a) is a statement about the method (which substitutions are guaranteed
 
 Kirshtein arXiv:1102.5151 (recursive associator formulas, Remark 35); Culbert 2007; Cawagas 2004 (8 octonion-like and 7 quasi-octonion maximal subloops); Albuquerque-Majid math/9802116; Hu-Huang-Zhang 1506.01502; Bales 1107.1375; Saniga-Holweck-Pracna 1405.6888; Wilmot 2505.11747 (triad classification; no pentagon counts or closed associator formula in the extract). Not found does not mean not known.
 
-## 12. History
-
-The derivation path, corrections and failed approaches are recorded in the project notes: `uniformity-property-note-2026-10-16.md` (addenda 1-3c), `sedenion-pentagon-proof-revised-2026-10-16.md`, and the literature audits rounds 1-4.
 
 ---
 
@@ -130,6 +127,7 @@ Multiplying (R') at (u,v), (L') at (u+v,v) and (R') at (u+v,u) gives (C) sigma(u
 - Id.1  alpha(t,t+x,y) = alpha(t,x,y): the ratio is [sigma(t,t+x) sigma(t,x)] [sigma(t,t+x+y) sigma(t,x+y)] = d_t d_t = 1 by (L') twice.
 - Id.2  alpha(x,y+t,t) = alpha(x,y,t): the ratio is [sigma(x+y+t,t) sigma(x+y,t)] [sigma(y+t,t) sigma(y,t)] = d_t d_t = 1 by (R') twice.
 - Id.3  alpha(t,x,y) = alpha(x,y,t+x+y): expand the right side as sigma(x,y) sigma(x+y,t+x+y) sigma(y,t+x+y) sigma(x,t+x); apply (L') to the last three factors (each gains a d), reverse the arguments with (C) (each gains three d's); every d occurs twice and cancels, leaving sigma(x,y) sigma(t,x+y) sigma(t+x,y) sigma(t,x) = alpha(t,x,y).
+
 Id.1 gives Q = P. Substituting t -> t+y in the sum defining W and using Id.2 gives W = R. Summing Id.3 over t gives P = R. So P = Q = R = W, all Gram entries equal ||P||^2, and the ten pair sums coincide. The five means are equal for every sigma (each edge map G^4 -> G^3 is a surjective linear map with equal fibres), and the 16 even-parity sign patterns have 16 characters (constant, five singletons, ten pairs), so equal means and equal pair sums give S_5-invariance. This reproves the aggregate form of section 2 without the order-24 group; it does not give the finer statement for each rank stratum.
 
 **Scope.** The theorem concerns the aggregate law over all of G^4. It does not say the edge law is concentrated at +1 or that the algebra is associative.
@@ -148,10 +146,17 @@ Id.1 gives Q = P. Substituting t -> t+y in the sum defining W and using Id.2 giv
 - (L), u = (0,q), w = (r,s): (uu)w = (-r,-s); u(uw) = (-(r q-bar) q, -q(q-bar s)); and (r q-bar) q = eps(q) r q^2 = r by (R), q(q-bar s) = eps(q) q^2 s = s by (L).
 - (R), w = (r,0), u = (p,q): (uw)w = (p r^2, q r^2) = u(ww), by (R) at level n.
 - (R), w = (0,s), u = (p,q): u(ww) = (-p,-q); (uw)w = (-s-bar(sp), -s(s-bar q)) = (-p,-q), using s-bar(sp) = eps(s) s^2 p = p by (L) and s(s-bar q) = q likewise.
+
 Both laws at level n+1 use both at level n, so the pair is proved together. Checked: `scripts/cd_LR_induction_check.py` builds the unit sign table by the same recursion (cross-checked against the full vector product for n <= 4) and verifies (L),(R) for n = 1..7.
+
 **Alternate product** (a,b)(c,d) = (ac - b-bar d, da-bar + bc): the same induction works with one change (the (R) case with w = (0,s) uses s(s-bar q) = q, which is (L), not (R)); (L),(R) are verified for n = 1..6 in `gram_separator_verify.py`. We did not determine whether this is in the literature.
+
 **Consequence.** The theorem of section 2 holds for the standard Cayley-Dickson algebras at every n, not only n = 3, 4, 5. The unit loop is alternative from n = 4 on while the algebra is not.
 
 ## 11. Literature update (round 5, 2026-10-17)
 
 Related, not the same: Albuquerque-Elduque-Perez-Izquierdo, *Alternative quasialgebras*, Bull. Austral. Math. Soc. 63 (2001) 257-268 (Prop. 3.9(i): phi(a,b,c) = 1 iff the subgroup generated by a,b,c has order at most 4, for alternative division quasialgebras; compare with our rank-2 statement only after reading it in full). Albuquerque-Majid, math/9802116 (octonions as a Z_2^3 cocycle twist; abstract only). We did not find the pentagon exchangeability statement, the Gram argument, or the necessity theorem in the sources searched; the search was partial, and not finding something is not evidence that it is new. See `notes/literature-audit-round5.md`.
+
+## 12. History
+
+The derivation path, corrections and failed approaches are recorded in the project notes: `uniformity-property-note-2026-10-16.md` (addenda 1-3c), `sedenion-pentagon-proof-revised-2026-10-16.md`, and the literature audits rounds 1-4.

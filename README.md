@@ -19,7 +19,7 @@ Examples (all quadruples counted):
 | System | n | no flip | each 2-flip pattern | each 4-flip pattern |
 |---|---|---|---|---|
 | standard Cayley-Dickson (sedenions) | 4 | 15,136 | 2,688 | 4,704 |
-| alternate product (a,b)(c,d)=(ac - b*d, da* + bc) | 4 | 26,656 | 3,456 | 864 |
+| alternate product (a,b)(c,d)=(ac - b\*d, da\* + bc) | 4 | 26,656 | 3,456 | 864 |
 | standard Cayley-Dickson | 5 | 166,576 | 48,720 | 78,960 |
 
 Random normalized cochains without the hypotheses satisfy the parity statement but are not uniform.
