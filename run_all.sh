@@ -4,10 +4,13 @@
 # Python versions, so the checks below look at structural statements, not at every number).
 set -u
 cd "$(dirname "$0")"; mkdir -p output; fail=0
+# Works with the folder layout (scripts/, sedenion/) and also if all files sit in one flat folder.
+SCRIPTS=scripts; [ -d scripts ] || SCRIPTS=.
+SEDENION=sedenion; [ -d sedenion ] || SEDENION=.
 run() { dir=$1; s=$2; ( cd "$dir" && ENGINE_DIR=/nonexistent python3 "$s" ) > "output/${s%.py}.txt" 2>"output/${s%.py}.err" || { echo "FAIL (exit) $s"; fail=1; }; }
 for s in exact_invariance_groups counterexamples random_cochain_check alt_product_check dim32_check general_n_check corr_check transcribe_check \
-         uniformity_proof_check pairs_check pairs_classes sym_probe uniformity_probe_dep uniformity_probe; do run scripts $s.py; done
-run sedenion paren_verify.py
+         uniformity_proof_check pairs_check pairs_classes sym_probe uniformity_probe_dep uniformity_probe; do run $SCRIPTS $s.py; done
+run $SEDENION paren_verify.py
 need() { grep -q -- "$2" "output/$1.txt" && echo "ok    $1: $3" || { echo "FAIL  $1: $3"; fail=1; }; }
 need exact_invariance_groups "left only  (L)   universal invariance group order  2" "L only: guaranteed symmetry group has order 2"
 need exact_invariance_groups "right only (R)   universal invariance group order  2" "R only: guaranteed symmetry group has order 2"
